@@ -96,6 +96,7 @@ bool OperationManager::areNumbersCorrect(string s)
 bool OperationManager::validator(string s)
 {
     bool ans = true;
+    ans = ans && (s.find_first_not_of("0123456789().+-*/") == -1);
     ans = ans && areNumbersCorrect(s);
     ans = ans && areBracesCorrect(s);
     ans = ans && areOperationsNonEmpty(s);
@@ -105,7 +106,7 @@ bool OperationManager::validator(string s)
 
 bool OperationManager::noOperations(string s)
 {
-    string operations = "+_*/";
+    string operations = "+-*/";
     return s.find_first_of(operations) == -1;
 }
 

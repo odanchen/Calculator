@@ -206,10 +206,11 @@ bool MainComponent::validateDigit(string s, char digit)
 }
 
 void MainComponent::addDigit(std::string digit) {
-   if (expression == "0" && (digit == "." || digit == "*" || digit == "/")) {
+    if (expression == "wrong input") expression = "0";
+    if (expression == "0" && (digit == "." || digit == "*" || digit == "/")) {
        expression += digit;
    }
-  else {
+    else {
         if (expression == "0")
         {
             if (validateDigit("", digit.front())) expression = digit;
